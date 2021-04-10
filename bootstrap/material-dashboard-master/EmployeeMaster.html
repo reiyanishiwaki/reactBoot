@@ -72,106 +72,46 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Purchasing&nbsp;Management</a>
+            <a class="navbar-brand" href="javascript:;">Employee&nbsp;Management</a>
           </div>
         </div>
       </nav>
       <div class="content">
         <div class="container-fluid">
           <form>
-            <div class="col-10">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4>①購入情報を入力してください</h4>
-                  <h6>ユーザー名や日付をキーに検索してください</h6>
-                </div>
-                <div class="card-body">
-                  <form>
-                    <div class="form-row">
-                      <div class="col-md-4">
-                        <label for="exampleInputEmail1">名前</label>
-                        <input type="text" class="form-control" placeholder="xxx">
-                      </div>
-                      <div class="col-md-4">
-                        <label for="exampleInputEmail1">買付日</label>
-                        <input class="form-control" type="date" id="example-date-input">
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="col-md-4">
-                        <label for="exampleInputEmail1">商品名</label>
-                        <input type="text" class="form-control" placeholder="xxx">
-                      </div>
-                      <div class="col-md-4">
-                        <label for="exampleInputEmail1">xxx</label>
-                        <input type="text" class="form-control" placeholder="xxx">
-                      </div>
-                      <div class="col-md-4 text-center">
-                        <button type="button" class="btn btn-primary">
-                          検索する
-                        </button>
-                      </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <br>
-      <div class="content">
-        <div class="container-fluid">
-          <form>
             <div class="col-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4>②過去の来店日と査定内容の編集</h4>
-                  <h6>編集ボタンを押すとモーダルが開き、金額を変更することができます<h6>
+                  <h4>①社員情報</h4>
+                  <h6>ログインID、パスワード、店舗情報などを入力してください<h6>
                 </div>
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>来店日</th>
-                      <th>商品名</th>
-                      <th>買取価格</th>
+                      <th>社員ID</th>
+                      <th>社員名</th>
+                      <th>所属店舗</th>
                       <th>予備カラム</th>
+                      <th></th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>20210421</td>
-                      <td>ゴルフクラブ</td>
-                      <td>15000</td>
+                      <td>10000</td>
+                      <td>西脇礼哉</td>
+                      <td>東京店</td>
                       <td>予備カラム</td>
                       <td class="td-actions">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                          data-target="#exampleModal">
-                          変更
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                          data-target="#editEmployeeInfoModal">
+                          編集
                         </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>20200511</td>
-                      <td>PostgreSQL</td>
-                      <td>15000</td>
-                      <td>予備カラム</td>
+                      </t」」」」
                       <td class="td-actions">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                          data-target="#exampleModal">
-                          変更
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>20191124</td>
-                      <td>MySQL</td>
-                      <td>15000</td>
-                      <td>予備カラム</td>
-                      <td class="td-actions">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                          data-target="#exampleModal">
-                          変更
+                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+                          data-target="#deleteEmployeeInfoModal">
+                          削除
                         </button>
                       </td>
                     </tr>
@@ -185,12 +125,12 @@
     </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="editEmployeeInfoModal" tabindex="-1" role="dialog" aria-labelledby="editEmployeeInfoModal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{商品名}}の買取価格を修正</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{社員番号}}の登録情報を変更</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -198,26 +138,64 @@
         <div class="modal-body">
           <div class="container">
             <div class="row text-center">
-              <div class="col-md-6">
-                変更前の値段
+              <div class="col-md-4">
+                社員ID<input class="form-control" id="changedPrice" aria-describedby="changedPrice" placeholder="変更後の社員IDを入力">
               </div>
-              <div class="col-md-6">　
-                変更後の値段
+              <div class="col-md-4">　
+                社員名<input class="form-control" id="changedPrice" aria-describedby="changedPrice" placeholder="変更後の社員IDを入力">
               </div>
-              <div class="col-md-6">
-                ￥15000
-              </div>
-              <div class="col-md-6">　
-                <div class="form-group">
-                  <input class="form-control" id="changedPrice" aria-describedby="changedPrice" placeholder="変更後の買付金額を入力">
-                </div>
+              <div class="col-md-4">　
+                所属店舗<input class="form-control" id="changedPrice" aria-describedby="changedPrice" placeholder="変更後の社員IDを入力">
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">変更しない</button>
-          <button type="button" class="btn btn-info">変更する</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">削除しない</button>
+          <button type="button" class="btn btn-info">削除する</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="deleteEmployeeInfoModal" tabindex="-1" role="dialog"
+    aria-labelledby="deleteEmployeeInfoModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{社員番号}}}の登録情報を削除</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row text-center">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th>社員ID</th>
+                    <th>社員名</th>
+                    <th>店舗</th>
+                    <th>予備カラム</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>10000</td>
+                    <td>西脇礼哉</td>
+                    <td>東京店</td>
+                    <td>予備カラム</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">削除しない</button>
+          <button type="button" class="btn btn-info">削除する</button>
         </div>
       </div>
     </div>
